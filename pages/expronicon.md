@@ -439,6 +439,65 @@ Test Passed
 </v-click>
 
 ---
+layout: two-cols
+---
+## 代数类型
+
+直接用Julia实现的代数类型(Algebra Data Type)
+
+```julia
+struct Call
+    name
+    args
+end
+
+struct Plus
+    lhs
+    rhs
+end
+
+struct Add
+    lhs
+    rhs
+end
+```
+
+<v-click>
+
+类型不稳定！
+
+</v-click>
+
+::right::
+
+类型稳定的Rust-like代数类型
+
+```julia
+@adt Term begin
+    struct Call
+        name
+        args
+    end
+
+    struct Plus
+        lhs
+        rhs
+    end
+
+    struct Add
+        lhs
+        rhs
+    end
+end
+```
+
+<v-click>
+
+限制: 无法支持参数类型（参数类型会类型不稳定）
+
+</v-click>
+
+---
 
 ## 总结
 
